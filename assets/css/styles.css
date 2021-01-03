@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+:root {
+    --color-primary: #551988;
+    --color-primary-light: #faf6fd;
+}
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* outline: red solid 1px; */
+    font-family: 'Source Sans Pro';
+}
+body {
+    background-color: var(--color-primary-light);
+}
+
+@media (max-width: 500px) {
+    .nav-main {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        bottom: 0px;
+        width: 100%;
+        padding: 0 1rem;
+        height: 4rem;
+    }
+    .section-items {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 85%;
+        overflow: hidden;
+        border-radius: 2rem;
+        list-style: none;
+    }
+    .section-item {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-primary);
+        color: var(--color-primary-light);
+        font-weight: 600;
+        -moz-user-select: none;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    .section-item::after {
+        content: '';
+        position: absolute;
+        width: 0rem;
+        height: 0rem;
+        border: 0rem solid var(--color-primary-light);
+        border-radius: 50%;
+        top: 0;
+        background-color: var(--color-primary);
+        transition: all 0.2s;
+    }
+    .section-item:focus,
+    .section-item:active {
+        font-size: 0.9rem;
+        transition: all 0.2s;
+    }
+
+    .active.section-item::after {
+        content: '';
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        border: 0.1rem solid var(--color-primary-light);
+        border-radius: 50%;
+        top: -0.5rem;
+        background-color: var(--color-primary);
+    }
+
+    /* ************* container main ********** */
+
+    .container-main {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        height: 100%;
+        padding: 2rem;
+        padding-top: -5rem;
+    }
+    .container-main p {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
+    /* ************* seccion contacto ********** */
+
+    .container-contact {
+        display: grid;
+        position: fixed;
+        width: 100%;
+        grid-template-rows: 4rem 1fr;
+        gap: 0;
+        top: 0px;
+        height: 5rem;
+        padding: 1rem 1rem;
+        background-color: transparent;
+        transition: all 0.2s;
+    }
+    .btn-contact {
+        height: 4rem;
+        justify-self: end;
+        background-color: transparent;
+        border: none;
+        transition: all 0.2s;
+    }
+    .btn-contact.hidden {
+        height: 0rem;
+    }
+    .btn-contact img {
+        height: 100%;
+    }
+
+    .container-contact.active {
+        grid-template-rows: 0rem 1fr;
+        height: 100%;
+        padding: 1.5rem;
+        z-index: 1;
+        background-color: var(--color-primary);
+    }
+    .contact-content {
+        position: relative;
+        display: grid;
+        height: 0;
+        overflow: hidden;
+        grid-template-rows: 4rem 1fr;
+        background-color: transparent;
+        transition-delay: 0.3s;
+        transition: all 0.3s;
+        align-self: start;
+    }
+    .contact-content.active {
+        height: 100%;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 1rem;
+        align-self: center;
+        justify-self: center;
+        background-color: var(--color-primary-light);
+    }
+    .btn-contact--close {
+        position: relative;
+        width: 0rem;
+        height: 0rem;
+        display: flex;
+        justify-self: end;
+        align-self: center;
+        transition: all 0.3s;
+    }
+    .btn-contact--close.active {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .btn-contact--close::before,
+    .btn-contact--close::after {
+        content: '';
+        position: absolute;
+        width: 0rem;
+        height: 0rem;
+        border-radius: 0.25rem;
+        justify-self: center;
+        align-self: center;
+        transform: rotate(360deg);
+        background-color: var(--color-primary);
+        transition: all 0.3s;
+        transition-delay: 0.2s;
+    }
+    .btn-contact--close.active::before,
+    .btn-contact--close.active::after {
+        width: 100%;
+        height: 0.5rem;
+        transform: rotate(45deg);
+    }
+    .btn-contact--close.active::before {
+        transform: rotate(-45deg);
+    }
+}
