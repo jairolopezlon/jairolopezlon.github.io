@@ -107,4 +107,4 @@ const intersectionObserver = new IntersectionObserver((entries) => {
 // se configura para funcionar con el setTimeout del test, igual se probo quitando el retardo del test y funciona
 setTimeout(() => {
   intersectionObserver.observe($observe);
-}, 2100)
+}, 100)
