@@ -212,7 +212,7 @@ body {
     *,
     *::after,
     *::before {
-        font-size: calc(1rem + 1.5vw);
+        font-size: calc(1rem + 1.2vw);
     }
 }
 @media (min-width: 481px) and (max-width: 720px) {
@@ -280,10 +280,13 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    & > * {
+        text-align: center;
+    }
     & span:nth-child(1) {
         font-family: monospace;
         font-weight: 900;
-        font-size: 2rem;
+        font-size: 1.8rem;
         color: #fcf9ff;
     }
     & span:nth-child(2) {
