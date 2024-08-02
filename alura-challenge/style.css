@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+
+  --color-primary-dark-1: hsl(196, 66%, 7%);
+  --color-primary-dark-2: hsl(196, 64%, 17%);
+  --color-primary-dark-3: hsl(196, 64%, 27%);
+  --color-primary-light-1: hsl(196, 64%, 97%);
+  --color-secondary-light-1: hsl(37, 100%, 83%);
+  --color-secondary-light-2: hsl(37, 100%, 73%);
+  --color-secondary-light-3: hsl(37, 100%, 63%);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-primary-dark-2);
+  min-height: 100vh;
+  align-items: center;
+}
+
+.container {
+  max-width: 1024px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (width <= 1024px) {
+    padding-inline: 1rem;
+  }
+}
+
+.app-title {
+  padding-block: 0.5rem;
+  color: var(--color-primary-light-1);
+  font-size: 1.75rem;
+
+  @media (width <= 320px) {
+    font-size: 1.2rem;
+  }
+}
+
+.btn {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: var(--color-primary-dark-1);
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-secondary-light-3);
+  &:hover:not([disabled]) {
+    background-color: var(--color-secondary-light-2);
+    cursor: pointer;
+    scale: 1.02;
+  }
+  &:active:not([disabled]) {
+    scale: 1;
+    background-color: var(--color-secondary-light-3);
+  }
+  &:disabled {
+    background-color: var(--color-secondary-light-1);
+    color: rgba(16, 16, 16, 0.3);
+    cursor: not-allowed;
+
+    & svg {
+      fill: rgba(16, 16, 16, 0.3);
+    }
+  }
+
+  & svg {
+    fill: var(--color-primary-dark-1);
+    height: 1rem;
+    aspect-ratio: 1/1;
+  }
+}
+
+.textarea {
+  border-radius: 0.25rem;
+  color: var(--color-primary-dark-3);
+  border: none;
+  width: 100%;
+  resize: none;
+  height: 10rem;
+  padding: 0.5rem;
+  outline-offset: -3px;
+  &:focus {
+    outline: 3px solid var(--color-secondary-light-3);
+  }
+}
+.textarea-containers {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  > * {
+    flex-grow: 1;
+  }
+}
+.output-container,
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: min(400px, 100%);
+}
+.actions-btn {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (width < 320px) {
+    > * {
+      width: 100%;
+    }
+  }
+}
+
+.material-symbols-outlined {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal-msg {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  max-width: min(350px, 100%);
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-primary-light-1);
+  outline-offset: -3px;
+  display: none;
+  flex-direction: row-reverse;
+  gap: 0.25rem;
+  &.modal-type-warning {
+    outline: 3px solid rgb(240, 217, 11);
+  }
+  &.modal-type-success {
+    outline: 3px solid rgb(78, 207, 73);
+  }
+  &.modal-type-failure {
+    outline: 3px solid orangered;
+  }
+
+  & .material-symbols-outlined {
+    color: var(--color-primary-dark-1);
+  }
+
+  @media (width < 370px) {
+    left: 0.5rem;
+  }
+}
+
+.modal-body {
+  font-size: 0.8rem;
+  color: var(--color-primary-dark-2);
+}
+.modal-header {
+  & > svg {
+    cursor: pointer;
+    fill: var(--color-primary-dark-1);
+    height: 1rem;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.error-notification {
+  padding: 0.25rem 0.5rem;
+  background-color: rgb(252, 115, 115);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  color: var(--color-primary-dark-1);
+  cursor: pointer;
+}
+
+.modal-errors {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  flex-direction: column;
+  @media (width < 370px) {
+    right: 0.5rem;
+  }
+}
+.modal-errors-container {
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  display: none;
+  align-items: flex-start;
+  border-radius: 0.25rem;
+  max-width: min(350px, 100%);
+  background-color: var(--color-primary-light-1);
+  gap: 0.5rem;
+  & li {
+    margin-left: 1rem;
+    display: none;
+  }
+  & svg {
+    cursor: pointer;
+    fill: var(--color-primary-dark-1);
+    min-width: 1rem;
+    width: 1rem;
+    aspect-ratio: 1 / 1;
+  }
+}

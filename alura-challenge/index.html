@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./index.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Encriptador</title>
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="container">
+        <h1 class="app-title">Encriptador Alura</h1>
+        <div class="textarea-containers">
+          <div class="input-container">
+            <textarea
+              placeholder="Ingresa el texto que quieras encriptar o desencriptar."
+              oninput="validateInput(this)"
+              class="textarea"
+              name="input_text"
+              id="inputTextarea"
+            ></textarea>
+            <div class="actions-btn">
+              <button
+                class="btn"
+                id="btnEncrypt"
+                onclick="encryptMsg()"
+                disabled
+              >
+                Encriptar
+              </button>
+              <button
+                class="btn"
+                id="btnDecrypt"
+                onclick="decryptMsg()"
+                disabled
+              >
+                Desencriptar
+              </button>
+            </div>
+          </div>
+          <div class="output-container">
+            <textarea
+              class="textarea"
+              name="output-textarea"
+              id="outputTextarea"
+              readonly
+            ></textarea>
+            <div class="actions-btn">
+              <button class="btn" id="btnCopyText" onclick="copyText()">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-29.7 0-50.85-21.15Q288-282.3 288-312v-480q0-29.7 21.15-50.85Q330.3-864 360-864h384q29.7 0 50.85 21.15Q816-821.7 816-792v480q0 29.7-21.15 50.85Q773.7-240 744-240H360Zm0-72h384v-480H360v480ZM216-96q-29.7 0-50.85-21.15Q144-138.3 144-168v-552h72v552h456v72H216Zm144-216v-480 480Z"
+                  />
+                </svg>
+                Copiar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-errors">
+        <span onclick="showErrors(true)" class="error-notification"
+          >El texto inválido. Ver Errores</span
+        >
+        <div class="modal-errors-container">
+          <ul>
+            <li class="msg-empty">El mensaje no puede estar vacio.</li>
+            <li class="msg-uppercase">No se permiten letras mayusculas.</li>
+            <li class="msg-symbols">No se permiten simbolos o acentos</li>
+          </ul>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -960 960 960"
+            onclick="showErrors(false)"
+          >
+            <path
+              d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="modal-msg" id="modalMsg">
+        <div class="modal-header">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -960 960 960"
+            onclick="closeModalMsg()"
+          >
+            <path
+              d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z"
+            />
+          </svg>
+        </div>
+        <div class="modal-body">
+          Es necesario ingresar un teesario ingresar un teesario ingresar un
+          teesario ingresar un teesario ingresar un teesario ingresar un
+          teesario ingresar un teesario ingresar un texto
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
